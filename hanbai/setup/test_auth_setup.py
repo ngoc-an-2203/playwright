@@ -1,11 +1,9 @@
 from playwright.sync_api import Page, expect
-from config import HANBAI_AUTH_FILE as AUTH_FILE, HANBAI_BASE_URL as BASE_URL
-
-LOGIN_URL = f"{BASE_URL}/login"
+from config import HANBAI_AUTH_FILE as AUTH_FILE, HANBAI_BASE_URL as BASE_URL, TIMEOUT
 
 def test_hanbai_auth_setup(page: Page):
-    page.set_default_timeout(60000)  # Increase timeout to 60 seconds
-    page.goto(LOGIN_URL)
+    page.set_default_timeout(TIMEOUT)
+    page.goto(f"{BASE_URL}/login")
 
     # 🔽 GENERATED CODE (KEEP AS-IS)
     page.get_by_role("textbox", name="Nhập tên tài khoản").fill("AnTestHB")

@@ -19,7 +19,7 @@ playwright install
 
 ## 3. Run test
 
-You need to Login first to generate new token, using to signed all test later:
+You need to log in first to generate a new token, which will be used to sign all tests later.
 
 - For hanbai project
 
