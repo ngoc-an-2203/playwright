@@ -1,11 +1,13 @@
 # PLAYWRIGHT
 
-1. Install Python
+https://playwright.dev/python/
+
+## 1. Install Python
 
 Download and install the latest version of Python from [python.org](https://www.python.org/downloads/). Ensure that you check the box to **Add Python to PATH** during the installation process.
 
 
-2. Install playwright
+## 2. Install playwright
 
 Document: https://playwright.dev/python/docs/intro
 
@@ -14,7 +16,9 @@ pip install playwright
 playwright install
 ```	
 
-3. Run test on background
+## 3. Run test
+
+### 3.1. Run test on background
 
 - Run all tests in folder:
 
@@ -39,31 +43,31 @@ Or use this (might conflict if test names are duplicated)
 pytest -k test_should_allow_me_to_mark_all_items_as_completed
 ```
 
-4. Run test with open browser
+### 3.2. Run test with open browser
 
 ```bash
 pytest --headed
 ```
 
-You can run trace with specific folder/file/test case. Example: 
+You can run trace with specific folder/file/test case (see example at [3.1.](#31-run-test-on-background)). Example: 
 
 ```bash
 pytest --headed -k test_should_allow_me_to_mark_all_items_as_completed
 ```
 
-5. Debug test
+### 3.3. Debug test
 
 ```bash
 PWDEBUG=1 pytest -s
 ```
 
-You can run trace with specific folder/file/test case. Example: 
+You can run trace with specific folder/file/test case (see example at [3.1.](#31-run-test-on-background)). Example: 
 
 ```bash
 PWDEBUG=1 pytest -s -k test_should_allow_me_to_mark_all_items_as_completed
 ```
 
-5. Tracing viewer
+### 3.4. Tracing viewer
 
 - Create trace file
 
@@ -71,7 +75,7 @@ PWDEBUG=1 pytest -s -k test_should_allow_me_to_mark_all_items_as_completed
 pytest --tracing on
 ```
 
-You can run trace with specific folder/file/test case. Example: 
+You can run trace with specific folder/file/test case (see example at [3.1.](#31-run-test-on-background)). Example: 
 
 ```bash
 pytest --tracing on -k test_should_display_the_correct_text
