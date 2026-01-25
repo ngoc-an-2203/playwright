@@ -1,9 +1,9 @@
 from playwright.sync_api import Page, expect
+from config import HANBAI_AUTH_FILE as AUTH_FILE, HANBAI_BASE_URL as BASE_URL
 
-AUTH_FILE = "auth.json"
-LOGIN_URL = "https://demo.hanbai.vn/login"
+LOGIN_URL = f"{BASE_URL}/login"
 
-def test_auth_setup(page: Page):
+def test_hanbai_auth_setup(page: Page):
     page.set_default_timeout(60000)  # Increase timeout to 60 seconds
     page.goto(LOGIN_URL)
 
@@ -18,4 +18,13 @@ def test_auth_setup(page: Page):
     expect(page.locator("a").first).to_be_visible()
 
     # ✅ SAVE AUTH STATE
+    # WAIT until the keys you saw in DevTools exist
+    page.wait_for_function("""
+    () => 
+    localStorage.getItem('session_user_login') !== null &&
+    localStorage.getItem('session_save_userid') !== null &&
+    localStorage.getItem('session_page_stack') !== null &&
+    localStorage.getItem('dataCompany') !== null &&
+    localStorage.getItem('branch') !== null
+    """)
     page.context.storage_state(path=AUTH_FILE)

@@ -19,6 +19,14 @@ playwright install
 
 ## 3. Run test
 
+You need to Login first to generate new token, using to signed all test later:
+
+- For hanbai project
+
+```bash
+pytest -k  test_hanbai_auth_setup
+```
+
 ### 3.1. Run test on background
 
 - Run all tests in folder:

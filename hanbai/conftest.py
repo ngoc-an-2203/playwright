@@ -1,8 +1,7 @@
 import pytest
 from typing import Generator
 from playwright.sync_api import Browser, BrowserContext, Page
-
-AUTH_FILE = "auth.json"
+from config import HANBAI_AUTH_FILE as AUTH_FILE
 
 @pytest.fixture
 def auth_context(browser: Browser) -> Generator[BrowserContext, None, None]:

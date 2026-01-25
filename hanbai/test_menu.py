@@ -1,7 +1,9 @@
+import re
 from playwright.sync_api import Page, expect
+from config import HANBAI_BASE_URL as BASE_URL
 
-def test_dashboard_visible(auth_page: Page):
+def test_menu_visible(auth_page: Page):
     cookies = auth_page.context.cookies()
     print(cookies)
-    auth_page.goto("https://demo.hanbai.vn/menu")
-    expect(auth_page.locator("a").first).to_be_visible().to_be_visible()
+    auth_page.goto(f"{BASE_URL}/menu")
+    expect(auth_page).to_have_url(re.compile(r".*/menu$"))
