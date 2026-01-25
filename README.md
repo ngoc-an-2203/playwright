@@ -7,12 +7,13 @@ https://playwright.dev/python/
 Download and install the latest version of Python from [python.org](https://www.python.org/downloads/). Ensure that you check the box to **Add Python to PATH** during the installation process.
 
 
-## 2. Install playwright
+## 2. Install dependency
 
 Document: https://playwright.dev/python/docs/intro
 
 ```bash
-pip install playwright
+pip install -r requirements.txt
+
 playwright install
 ```	
 
