@@ -91,3 +91,27 @@ playwright show-trace test-results/example-test-clear-completed-button-py-test-s
 
 Tips: `Right click the file in Left Panel -> Copy Relative Path` to copy file name, not need to manual copy
 
+## 4. Generate test
+
+Document: https://playwright.dev/python/docs/codegen-intro
+
+```bash
+playwright codegen demo.playwright.dev/todomvc
+```
+
+## 5. Useful script
+
+### 5.1 Push code to github
+
+- You need to run this first (one time):
+
+```bash
+chmod +x ./commit.sh
+```
+
+- Commit and push code
+```bash
+./commit.sh
+```
+
+After that, you need to enter commit name -> Enter
