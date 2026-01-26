@@ -22,6 +22,8 @@ Document: https://playwright.dev/python/docs/intro
 pip install -r requirements.txt
 
 playwright install
+
+nbstripout --install
 ```
 
 ## 3. Run test
