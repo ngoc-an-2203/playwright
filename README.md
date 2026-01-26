@@ -2,9 +2,16 @@
 
 https://playwright.dev/python/
 
-## 1. Install Python
+## 1. Install tool
+
+### 1.1. Install Python
 
 Download and install the latest version of Python from [python.org](https://www.python.org/downloads/). Ensure that you check the box to **Add Python to PATH** during the installation process.
+
+### 1.2. Install Make
+-   **macOS:** `brew install make`
+-   **Ubuntu:** `sudo apt install make`
+-   **Windows:** [Follow online installation guides](https://gnuwin32.sourceforge.net/packages/make.htm).
 
 
 ## 2. Install dependency
@@ -24,70 +31,68 @@ You need to log in first to generate a new token, which will be used to sign all
 - For hanbai project
 
 ```bash
-pytest -k  test_hanbai_auth_setup
+make hanbai-auth
 ```
 
 ### 3.1. Run test on background
 
-- Run all tests in folder:
+Run all tests in folder/file/keyword:
 
 ```bash
-pytest example
+make start example
 ```
 
-- Run specific test file:
-
 ```bash
-pytest example/test_clear_completed_button.py example/test_counter.py
+make start example/test_clear_completed_button.py example/test_counter.py
 ```
 
-- Run specific test case:
 ```bash
-pytest example/test_mark_all_as_completed.py -k test_should_allow_me_to_mark_all_items_as_completed
-```
-
-Or use this (might conflict if test names are duplicated)
-
-```bash
-pytest -k test_should_allow_me_to_mark_all_items_as_completed
+make start-k test_should_allow_me_to_mark_all_items_as_completed
 ```
 
 ### 3.2. Run test with open browser
 
+Run all tests in folder/file/keyword:
+
 ```bash
-pytest --headed
+make dev example
 ```
 
-You can run trace with specific folder/file/test case (see example at [3.1.](#31-run-test-on-background)). Example: 
-
 ```bash
-pytest --headed -k test_should_allow_me_to_mark_all_items_as_completed
+make dev example/test_clear_completed_button.py example/test_counter.py
 ```
 
-### 3.3. Debug test
-
 ```bash
-PWDEBUG=1 pytest -s
+make dev-k test_should_allow_me_to_mark_all_items_as_completed
 ```
 
-You can run trace with specific folder/file/test case (see example at [3.1.](#31-run-test-on-background)). Example: 
+### 3.3. Run test with debug - step by step
+
+Run all tests in file/keyword:
 
 ```bash
-PWDEBUG=1 pytest -s -k test_should_allow_me_to_mark_all_items_as_completed
+make debug example/test_clear_completed_button.py example/test_counter.py
 ```
 
-### 3.4. Tracing viewer
-
-- Create trace file
-
 ```bash
-pytest --tracing on
+make debug-k test_should_allow_me_to_mark_all_items_as_completed
 ```
 
-You can run trace with specific folder/file/test case (see example at [3.1.](#31-run-test-on-background)). Example: 
+### 3.4. Run test with tracing
+
+- Create tracing file for folder/file/keyword
+
 
 ```bash
-pytest --tracing on -k test_should_display_the_correct_text
+make trace example
+```
+
+```bash
+make trace example/test_clear_completed_button.py
+```
+
+```bash
+make trace-k test_should_display_the_correct_text
 ```
 
 You will see file at: `test-results/example-test-clear-completed-button-py-test-should-display-the-correct-text-chromium/trace.zip`
@@ -95,7 +100,7 @@ You will see file at: `test-results/example-test-clear-completed-button-py-test-
 - Open trace view:
 
 ```bash
-playwright show-trace test-results/example-test-clear-completed-button-py-test-should-display-the-correct-text-chromium/trace.zip
+make view test-results/example-test-clear-completed-button-py-test-should-display-the-correct-text-chromium/trace.zip
 ```
 
 Tips: `Right click the file in Left Panel -> Copy Relative Path` to copy file name, not need to manual copy
@@ -105,22 +110,16 @@ Tips: `Right click the file in Left Panel -> Copy Relative Path` to copy file na
 Document: https://playwright.dev/python/docs/codegen-intro
 
 ```bash
-playwright codegen demo.playwright.dev/todomvc
+make gen demo.playwright.dev/todomvc
 ```
 
 ## 5. Useful script
 
 ### 5.1 Push code to github
 
-- You need to run this first (one time):
-
-```bash
-chmod +x ./commit.sh
-```
-
 - Commit and push code
 ```bash
-./commit.sh
+make commit
 ```
 
 After that, you need to enter commit name -> Enter
