@@ -80,24 +80,9 @@ make debug hanbai/test_menu.py
 make debug-k test_menu_visible
 ```
 
-### 3.4. Run test with tracing
+### 3.4. View tracing
 
-- Create tracing file for folder/file/keyword
-
-
-```bash
-make trace example
-```
-
-```bash
-make trace hanbai/test_menu.py
-```
-
-```bash
-make trace-k test_menu_visible
-```
-
-You will see file at: `traces/`
+- The trace file is always created during your test and deleted when you run a new test.You will see file at: `traces/`
 
 - Open trace view:
 
