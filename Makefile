@@ -48,7 +48,7 @@ gen:
 
 #--- Commit code ---
 commit:
-	bash ./commit.sh
+	bash ./commit.sh $(filter-out $@,$(MAKECMDGOALS))
 
 # Must be end of file
 %:
