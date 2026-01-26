@@ -35,7 +35,7 @@ trace:
 
 # Raw CLI: pytest --tracing on -k test_should_display_the_correct_text
 trace-k:
-	pytest --tracing on -k $(filter-out $@,$(MAKECMDGOALS))
+	pytest --tracing on -k "$(filter-out $@,$(MAKECMDGOALS))"
 
 # Raw CLI: playwright show-trace test-results/example-test-clear-completed-button-py-test-should-display-the-correct-text-chromium/trace.zip
 view:

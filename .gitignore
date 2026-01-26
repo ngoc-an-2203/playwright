@@ -4,3 +4,4 @@ __pycache__
 test-results
 auth.json
 hanbai_auth.json
+traces
