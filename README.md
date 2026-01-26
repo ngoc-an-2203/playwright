@@ -22,7 +22,7 @@ Document: https://playwright.dev/python/docs/intro
 pip install -r requirements.txt
 
 playwright install
-```	
+```
 
 ## 3. Run test
 
@@ -43,11 +43,11 @@ make start example
 ```
 
 ```bash
-make start example/test_clear_completed_button.py example/test_counter.py
+make start hanbai/test_menu.py
 ```
 
 ```bash
-make start-k test_should_allow_me_to_mark_all_items_as_completed
+make start-k test_menu_visible
 ```
 
 ### 3.2. Run test with open browser
@@ -59,11 +59,11 @@ make dev example
 ```
 
 ```bash
-make dev example/test_clear_completed_button.py example/test_counter.py
+make dev hanbai/test_menu.py
 ```
 
 ```bash
-make dev-k test_should_allow_me_to_mark_all_items_as_completed
+make dev-k test_menu_visible
 ```
 
 ### 3.3. Run test with debug - step by step
@@ -71,11 +71,11 @@ make dev-k test_should_allow_me_to_mark_all_items_as_completed
 Run all tests in file/keyword:
 
 ```bash
-make debug example/test_clear_completed_button.py example/test_counter.py
+make debug hanbai/test_menu.py
 ```
 
 ```bash
-make debug-k test_should_allow_me_to_mark_all_items_as_completed
+make debug-k test_menu_visible
 ```
 
 ### 3.4. Run test with tracing
@@ -88,19 +88,19 @@ make trace example
 ```
 
 ```bash
-make trace example/test_clear_completed_button.py
+make trace hanbai/test_menu.py
 ```
 
 ```bash
-make trace-k test_should_display_the_correct_text
+make trace-k test_menu_visible
 ```
 
-You will see file at: `test-results/example-test-clear-completed-button-py-test-should-display-the-correct-text-chromium/trace.zip`
+You will see file at: `traces/`
 
 - Open trace view:
 
 ```bash
-make view test-results/example-test-clear-completed-button-py-test-should-display-the-correct-text-chromium/trace.zip
+make view traces/test-menu-visible-chromium.zip
 ```
 
 Tips: `Right click the file in Left Panel -> Copy Relative Path` to copy file name, not need to manual copy
@@ -119,7 +119,12 @@ make gen demo.playwright.dev/todomvc
 
 - Commit and push code
 ```bash
-make commit
+make commit "update"
 ```
 
+Or
+
+```bash
+make commit
+```
 After that, you need to enter commit name -> Enter
