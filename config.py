@@ -1,8 +1,21 @@
-TIMEOUT = 120000
-"""Load page timeout: 120 seconds"""
+import os
+from dotenv import load_dotenv
 
-HANBAI_BASE_URL = "https://demo.hanbai.vn"
-"""Base URL for Hanbai application"""
+load_dotenv()
+
+# Configuration
+# You can set these environment variables in a .env file or in your system environment
+# Example .env file content:
+"""
+TIMEOUT=120000
+HANBAI_BASE_URL=https://demo.hanbai.vn
+"""
+
+TIMEOUT = int(os.getenv("TIMEOUT", 120000))
+"""Default load page timeout: 120 seconds"""
+
+HANBAI_BASE_URL = os.getenv("HANBAI_BASE_URL", "https://demo.hanbai.vn")
+"""Default base URL for Hanbai application"""
 
 HANBAI_AUTH_FILE = "hanbai_auth.json"
-"""File path for storing Hanbai authentication state"""
+"""Default file path for storing Hanbai authentication state"""
