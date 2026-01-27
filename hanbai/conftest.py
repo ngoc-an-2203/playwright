@@ -8,10 +8,13 @@ import shutil
 
 @pytest.fixture(scope="session", autouse=True)
 def clear_traces(request):
-    traces_dir = "traces"
-    if os.path.exists(traces_dir):
-        shutil.rmtree(traces_dir)
-    os.makedirs(traces_dir)
+    # This hook ensures that the code only runs on the master node,
+    # not on any of the worker nodes.
+    if not hasattr(request.config, "workerinput"):
+        traces_dir = "traces"
+        if os.path.exists(traces_dir):
+            shutil.rmtree(traces_dir)
+        os.makedirs(traces_dir)
 
 @pytest.fixture
 def auth_context(browser: Browser, request) -> Generator[BrowserContext, None, None]:

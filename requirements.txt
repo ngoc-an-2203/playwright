@@ -4,3 +4,4 @@ playwright==1.57.0
 python-slugify==8.0.4
 nbstripout==0.7.1
 python-dotenv==1.0.1
+pytest-xdist==3.8.0

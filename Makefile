@@ -4,7 +4,7 @@ hanbai-auth:
 #--- Run test on background ---
 # Raw CLI: pytest example
 start:
-	pytest $(filter-out $@,$(MAKECMDGOALS))
+	pytest --numprocesses auto $(filter-out $@,$(MAKECMDGOALS))
 
 # Raw CLI: pytest -k test_should_allow_me_to_mark_all_items_as_completed
 start-k:
@@ -32,7 +32,7 @@ debug-k:
 # Raw CLI: pytest --tracing on example
 # The trace file is always created during your test and deleted when you run a new test
 # trace:
-# 	pytest --tracing on $(filter-out $@,$(MAKECMDGOALS))
+# 	pytest --numprocesses auto --tracing on $(filter-out $@,$(MAKECMDGOALS))
 
 # Raw CLI: pytest --tracing on -k test_should_display_the_correct_text
 # The trace file is always created during your test and deleted when you run a new test

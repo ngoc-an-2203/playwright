@@ -10,8 +10,14 @@ def test_hanbai_auth_setup(page: Page):
     page.get_by_role("textbox", name="Nhập mật khẩu").fill("123456")
     page.get_by_role("button", name="Đăng nhập").click()
 
-    page.get_by_text("Tiếp tục đăng nhập", exact=True).click()
-    page.get_by_role("button", name="Đăng nhập").click()
+    continue_button = page.get_by_text("Tiếp tục đăng nhập", exact=True)
+    try:
+        continue_button.wait_for(timeout=5000)  # Wait for 5 seconds
+        if continue_button.is_visible():
+            continue_button.click()
+            page.get_by_role("button", name="Đăng nhập").click()
+    except:
+        pass
 
     expect(page.locator("a").first).to_be_visible()
 

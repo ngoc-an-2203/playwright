@@ -1,5 +1,6 @@
 import re
 from playwright.sync_api import Page, expect
+import pytest
 
 def test_menu_visible(auth_page: Page):
     auth_page.goto("/menu")
