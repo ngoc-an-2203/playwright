@@ -6,7 +6,7 @@ def test_hanbai_auth_setup(page: Page):
     page.goto(f"{BASE_URL}/login")
 
     # 🔽 GENERATED CODE (KEEP AS-IS)
-    page.get_by_role("textbox", name="Nhập tên tài khoản").fill("AnTestHB")
+    page.get_by_role("textbox", name="Nhập tên tài khoản").fill("an2")
     page.get_by_role("textbox", name="Nhập mật khẩu").fill("123456")
     page.get_by_role("button", name="Đăng nhập").click()
 

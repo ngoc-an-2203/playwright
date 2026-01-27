@@ -1,6 +1,9 @@
 hanbai-auth:
 	pytest -k test_hanbai_auth_setup
 
+hanbai-auth-dev:
+	pytest --headed -k test_hanbai_auth_setup
+
 #--- Run test on background ---
 # Raw CLI: pytest example
 start:
