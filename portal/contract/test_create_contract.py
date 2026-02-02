@@ -51,5 +51,5 @@ def test_create_contract(auth_portal: Page):
     auth_portal.get_by_role("textbox", name="Mã số thuế bên B").click()
     auth_portal.get_by_role("textbox", name="Mã số thuế bên B").fill("0567655468")
     auth_portal.get_by_role("button", name=" Lưu bản nháp").click()
-    expect(True).to_be_truthy()  # Replace with actual assertions as needed
+    expect(auth_portal).to_have_url(re.compile(r".*/Admin/Contract$"))
 
