@@ -19,3 +19,16 @@ HANBAI_BASE_URL = os.getenv("HANBAI_BASE_URL", "https://demo.hanbai.vn")
 
 HANBAI_AUTH_FILE = "hanbai_auth.json"
 """Default file path for storing Hanbai authentication state"""
+
+PORTAL_BASE_URL = os.getenv("PORTAL_BASE_URL", "https://demo.sorimachi.vn")
+
+PORTAL_AUTH_FILE = "portal_auth.json"
+"""Default file path for storing Portal authentication state"""
+
+PORTAL_USERNAME = os.getenv("PORTAL_USERNAME", "trangnguyen")
+"""Default username for Portal login"""
+
+PORTAL_PASSWORD = os.getenv("PORTAL_PASSWORD", "123456")
+"""Default password for Portal login"""
+
+

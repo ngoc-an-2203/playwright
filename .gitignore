@@ -6,3 +6,4 @@ auth.json
 hanbai_auth.json
 traces
 .env
+portal_auth.json
