@@ -20,7 +20,7 @@ def pytest_sessionstart(session):
         os.makedirs(traces_dir)
 
 @pytest.fixture
-def auth_context(browser: Browser, request) -> Generator[BrowserContext, None, None]:
+def portal_context(browser: Browser, request) -> Generator[BrowserContext, None, None]:
     context = browser.new_context(
         storage_state=AUTH_FILE,
         base_url=PORTAL_BASE_URL,
@@ -35,6 +35,6 @@ def auth_context(browser: Browser, request) -> Generator[BrowserContext, None, N
     context.close()
 
 @pytest.fixture
-def auth_portal(auth_context: BrowserContext) -> Page:
-    page = auth_context.new_page()
+def portal_page(portal_context: BrowserContext) -> Page:
+    page = portal_context.new_page()
     return page
