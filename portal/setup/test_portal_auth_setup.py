@@ -1,5 +1,5 @@
 from playwright.sync_api import Page, expect
-from config import PORTTAL_AUTH_FILE as AUTH_FILE, PORTAL_BASE_URL as BASE_URL, TIMEOUT, PORTAL_USERNAME, PORTAL_PASSWORD
+from config import PORTAL_AUTH_FILE, PORTAL_BASE_URL as BASE_URL, TIMEOUT, PORTAL_USERNAME, PORTAL_PASSWORD
 
 def test_portal_auth_setup(page: Page):
     page.set_default_timeout(TIMEOUT)
@@ -11,4 +11,4 @@ def test_portal_auth_setup(page: Page):
     expect(page.get_by_role("link", name=" Dashboard")).to_be_visible()
      # ✅ SAVE AUTH STATE
     # WAIT until the keys you saw in DevTools exist
-    page.context.storage_state(path=AUTH_FILE)
+    page.context.storage_state(path=PORTAL_AUTH_FILE)

@@ -1,13 +1,12 @@
 from playwright.sync_api import Page, expect
-from config import HANBAI_AUTH_FILE as AUTH_FILE, HANBAI_BASE_URL as BASE_URL, TIMEOUT
+from config import HANBAI_AUTH_FILE, HANBAI_BASE_URL, TIMEOUT, HANBAI_USERNAME, HANBAI_PASSWORD
 
 def test_hanbai_auth_setup(page: Page):
     page.set_default_timeout(TIMEOUT)
-    page.goto(f"{BASE_URL}/login")
-
+    page.goto(f"{HANBAI_BASE_URL}/login")
     # 🔽 GENERATED CODE (KEEP AS-IS)
-    page.get_by_role("textbox", name="Nhập tên tài khoản").fill("an2")
-    page.get_by_role("textbox", name="Nhập mật khẩu").fill("123456")
+    page.get_by_role("textbox", name="Nhập tên tài khoản").fill(HANBAI_USERNAME)
+    page.get_by_role("textbox", name="Nhập mật khẩu").fill(HANBAI_PASSWORD)
     page.get_by_role("button", name="Đăng nhập").click()
 
     continue_button = page.get_by_text("Tiếp tục đăng nhập", exact=True)
@@ -31,4 +30,4 @@ def test_hanbai_auth_setup(page: Page):
     localStorage.getItem('dataCompany') !== null &&
     localStorage.getItem('branch') !== null
     """)
-    page.context.storage_state(path=AUTH_FILE)
+    page.context.storage_state(path=HANBAI_AUTH_FILE)
